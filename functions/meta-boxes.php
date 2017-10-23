@@ -3,7 +3,7 @@
 function va_ads_add_meta_box() {
     add_meta_box(
         'ad-details',                 // The HTML id attribute for the metabox section
-        'ad Details',                 // The title of metabox section
+        'Ad Details',                 // The title of metabox section
         'va_ads_meta_box_callback',   // The metabox callback function
         'va-ads',                     // Your custom post type slug
         'normal',                           // Position can be 'normal', 'side', and 'advanced'
@@ -14,15 +14,21 @@ add_action( 'add_meta_boxes', 'va_ads_add_meta_box' );
 
 function va_ads_meta_box_callback( $post ) {
     $post_id = get_post_custom( $post->ID );
-    $ad_job = isset( $post_id['ad_job'] ) ? esc_attr( $post_id['ad_job'][0] ) : "";
+    $ad_address = isset( $post_id['ad_address'] ) ? esc_attr( $post_id['ad_address'][0] ) : "";
     $ad_email = isset( $post_id['ad_email'] ) ? esc_attr( $post_id['ad_email'][0] ) : "";
     $ad_phone = isset( $post_id['ad_phone'] ) ? esc_attr( $post_id['ad_phone'][0] ) : "";
     $ad_website_url = isset( $post_id['ad_website_url'] ) ? esc_url( $post_id['ad_website_url'][0] ) : "";
+    $ad_facebook_url = isset( $post_id['ad_facebook_url'] ) ? esc_url( $post_id['ad_facebook_url'][0] ) : "";
+    $ad_twitter_url = isset( $post_id['ad_twitter_url'] ) ? esc_url( $post_id['ad_twitter_url'][0] ) : "";
+    $ad_map_url = isset( $post_id['ad_map_url'] ) ? esc_url( $post_id['ad_map_url'][0] ) : "";
     wp_nonce_field( 'ad_details_nonce_action', 'ad_details_nonce' );
-    echo '<label>ad Job</label><br/><input type="text" name="ad_job" id="ad_job" size="100" value="'. $ad_job .'" /><br/>';
-    echo '<label>ad Email</label><br/><input type="text" name="ad_email" id="ad_email" size="100" value="'. $ad_email .'" /><br/>';
-    echo '<label>ad Phone</label><br/><input type="text" name="ad_phone" id="ad_phone" size="100" value="'. $ad_phone .'" /><br/>';
-    echo '<label>ad Website URL</label><br/><input type="text" name="ad_website_url" id="ad_website_url" size="100" value="'. esc_url( $ad_website_url ) .'" /><br/>';
+    echo '<label>Company Address</label><br/><input type="text" name="ad_address" id="ad_address" size="100" value="'. $ad_address .'" /><br/>';
+    echo '<label>Company Email</label><br/><input type="text" name="ad_email" id="ad_email" size="100" value="'. $ad_email .'" /><br/>';
+    echo '<label>Company Phone</label><br/><input type="text" name="ad_phone" id="ad_phone" size="100" value="'. $ad_phone .'" /><br/>';
+    echo '<label>Company Website URL</label><br/><input type="text" name="ad_website_url" id="ad_website_url" size="100" value="'. esc_url( $ad_website_url ) .'" /><br/>';
+    echo '<label>Company Facebook URL</label><br/><input type="text" name="ad_facebook_url" id="ad_facebook_url" size="100" value="'. esc_url( $ad_facebook_url ) .'" /><br/>';
+    echo '<label>Company Twitter URL</label><br/><input type="text" name="ad_twitter_url" id="ad_twitter_url" size="100" value="'. esc_url( $ad_twitter_url ) .'" /><br/>';
+    echo '<label>Company Map URL</label><br/><input type="text" name="ad_map_url" id="ad_map_url" size="100" value="'. esc_url( $ad_map_url ) .'" /><br/>';
 }
 
 function va_ads_save_meta_box( $post_id ) {
@@ -49,8 +55,8 @@ function va_ads_save_meta_box( $post_id ) {
         return;
     }
  
-    if( isset( $_POST['ad_job'] ) ) {
-        update_post_meta( $post_id, 'ad_job', $_POST['ad_job']);
+    if( isset( $_POST['ad_address'] ) ) {
+        update_post_meta( $post_id, 'ad_address', $_POST['ad_address']);
     }
 
     if( isset( $_POST['ad_email'] ) ) {
@@ -63,6 +69,18 @@ function va_ads_save_meta_box( $post_id ) {
 
     if( isset( $_POST['ad_website_url'] ) ) {
         update_post_meta( $post_id, 'ad_website_url', esc_url( $_POST['ad_website_url'] ) );
+    }
+
+    if( isset( $_POST['ad_facebook_url'] ) ) {
+        update_post_meta( $post_id, 'ad_facebook_url', esc_url( $_POST['ad_facebook_url'] ) );
+    }
+    
+    if( isset( $_POST['ad_twitter_url'] ) ) {
+        update_post_meta( $post_id, 'ad_twitter_url', esc_url( $_POST['ad_twitter_url'] ) );
+    }
+    
+    if( isset( $_POST['ad_map_url'] ) ) {
+        update_post_meta( $post_id, 'ad_map_url', esc_url( $_POST['ad_map_url'] ) );
     }
 
 }

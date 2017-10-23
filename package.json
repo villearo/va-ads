@@ -1,0 +1,30 @@
+{
+  "name": "va-ads",
+  "version": "1.0.0",
+  "description": "WP CPT Plugin for Ads",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/villearo/va-ads.git"
+  },
+  "keywords": [
+    "Custom",
+    "Post",
+    "Type",
+    "WordPress"
+  ],
+  "author": "Ville Aro",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/villearo/va-ads/issues"
+  },
+  "homepage": "https://github.com/villearo/va-ads#readme"
+}

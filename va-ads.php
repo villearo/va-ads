@@ -28,3 +28,35 @@ include( VA_ADS_PLUGIN_PATH . 'functions/meta-boxes.php' );
 include( VA_ADS_PLUGIN_PATH . 'functions/display-ad.php' );
 include( VA_ADS_PLUGIN_PATH . 'functions/shortcode.php' );
 
+
+
+
+
+
+/**
+ * Enque styles and scripts in head
+ */
+function va_ads_styles_and_scripts() {
+	wp_enqueue_style( 'va-ads-style', VA_ADS_PLUGIN_URL . 'styles/css/style.css' );
+	//wp_enqueue_script( 'overlay-scripts', VA_OVERLAY_PLUGIN_URL . 'scripts/overlay-scripts.js', array(), '1.0.0', true );
+
+//	// Options
+//	$color_options = get_option('va_overlay_colors');
+//	$textcolor = $color_options['text'];
+//	$backgroundcolor = $color_options['background'];
+//	$style_settings = "
+//		#va-overlay .overlay-outer {
+//			background: {$backgroundcolor};
+//		}
+//		#va-overlay .overlay-inner > *:not(button) {
+//			color: {$textcolor};
+//		}
+//	";
+//	wp_add_inline_style( 'overlay-styles', $style_settings );
+
+	// Font Awesome
+	wp_register_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), '4.2.0' );
+    wp_enqueue_style( 'fontawesome' );
+
+}
+add_action('wp_enqueue_scripts', 'va_ads_styles_and_scripts');

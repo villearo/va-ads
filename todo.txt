@@ -1,3 +1,5 @@
 - translations
 - footer backlink to villearo.fi
 - readme
+- update FA
+- autoprefixer
