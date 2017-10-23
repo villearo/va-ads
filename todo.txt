@@ -1,0 +1,3 @@
+- translations
+- footer backlink to villearo.fi
+- readme
