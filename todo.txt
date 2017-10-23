@@ -3,3 +3,5 @@
 - readme
 - update FA
 - autoprefixer
+- css min.css
+- categories

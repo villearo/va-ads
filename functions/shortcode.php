@@ -11,6 +11,7 @@ function va_ads_shortcode( $atts ) {
         'order' => 'asc',
         'orderby' => 'date',
         'posts' => -1,
+        'category' => '',
         'ids' => array(),
     ), $atts ) );
 
@@ -34,6 +35,7 @@ function va_ads_shortcode( $atts ) {
         'order' => $order,
         'orderby' => $orderby,
         'posts_per_page' => $posts,
+        'category_name' => $category,
         'post__in' => $id_array,
     );
     $query = new WP_Query( $options );
