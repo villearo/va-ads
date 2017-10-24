@@ -6,6 +6,7 @@ function va_ads_display_ad( $class ) {
     $ad_address = get_post_meta( $post_id, 'ad_address', true );
     $ad_email = get_post_meta( $post_id, 'ad_email', true );
     $ad_phone = get_post_meta( $post_id, 'ad_phone', true );
+    $ad_additional_info = get_post_meta( $post_id, 'ad_additional_info', true );
     $ad_website_url = esc_url( get_post_meta( $post_id, 'ad_website_url', true ) );
     $ad_facebook_url = esc_url( get_post_meta( $post_id, 'ad_facebook_url', true ) );
     $ad_twitter_url = esc_url( get_post_meta( $post_id, 'ad_twitter_url', true ) );
@@ -33,6 +34,10 @@ function va_ads_display_ad( $class ) {
 
                 if ( $ad_phone ) {
                     $output .= '<div class="phone">' . $ad_phone . '</div>';
+                }
+
+                if ( $ad_additional_info ) {
+                    $output .= '<div class="additional-info">' . $ad_additional_info . '</div>';
                 }
 
                 if ( $ad_website_url ) {

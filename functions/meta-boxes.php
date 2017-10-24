@@ -17,18 +17,20 @@ function va_ads_meta_box_callback( $post ) {
     $ad_address = isset( $post_id['ad_address'] ) ? esc_attr( $post_id['ad_address'][0] ) : "";
     $ad_email = isset( $post_id['ad_email'] ) ? esc_attr( $post_id['ad_email'][0] ) : "";
     $ad_phone = isset( $post_id['ad_phone'] ) ? esc_attr( $post_id['ad_phone'][0] ) : "";
+    $ad_additional_info = isset( $post_id['ad_additional_info'] ) ? esc_attr( $post_id['ad_additional_info'][0] ) : "";
     $ad_website_url = isset( $post_id['ad_website_url'] ) ? esc_url( $post_id['ad_website_url'][0] ) : "";
     $ad_facebook_url = isset( $post_id['ad_facebook_url'] ) ? esc_url( $post_id['ad_facebook_url'][0] ) : "";
     $ad_twitter_url = isset( $post_id['ad_twitter_url'] ) ? esc_url( $post_id['ad_twitter_url'][0] ) : "";
     $ad_map_url = isset( $post_id['ad_map_url'] ) ? esc_url( $post_id['ad_map_url'][0] ) : "";
     wp_nonce_field( 'ad_details_nonce_action', 'ad_details_nonce' );
-    echo '<label>Company Address</label><br/><input type="text" name="ad_address" id="ad_address" size="100" value="'. $ad_address .'" /><br/>';
-    echo '<label>Company Email</label><br/><input type="text" name="ad_email" id="ad_email" size="100" value="'. $ad_email .'" /><br/>';
-    echo '<label>Company Phone</label><br/><input type="text" name="ad_phone" id="ad_phone" size="100" value="'. $ad_phone .'" /><br/>';
-    echo '<label>Company Website URL</label><br/><input type="text" name="ad_website_url" id="ad_website_url" size="100" value="'. esc_url( $ad_website_url ) .'" /><br/>';
-    echo '<label>Company Facebook URL</label><br/><input type="text" name="ad_facebook_url" id="ad_facebook_url" size="100" value="'. esc_url( $ad_facebook_url ) .'" /><br/>';
-    echo '<label>Company Twitter URL</label><br/><input type="text" name="ad_twitter_url" id="ad_twitter_url" size="100" value="'. esc_url( $ad_twitter_url ) .'" /><br/>';
-    echo '<label>Company Map URL</label><br/><input type="text" name="ad_map_url" id="ad_map_url" size="100" value="'. esc_url( $ad_map_url ) .'" /><br/>';
+    echo '<label>Address</label><br/><input type="text" name="ad_address" id="ad_address" size="100" value="'. $ad_address .'" /><br/>';
+    echo '<label>Email</label><br/><input type="text" name="ad_email" id="ad_email" size="100" value="'. $ad_email .'" /><br/>';
+    echo '<label>Phone</label><br/><input type="text" name="ad_phone" id="ad_phone" size="100" value="'. $ad_phone .'" /><br/>';
+    echo '<label>Additional Info</label><br/><input type="text" name="ad_additional_info" id="ad_additional_info" size="100" value="'. $ad_additional_info .'" /><br/>';
+    echo '<label>Website URL</label><br/><input type="text" name="ad_website_url" id="ad_website_url" size="100" value="'. esc_url( $ad_website_url ) .'" /><br/>';
+    echo '<label>Facebook URL</label><br/><input type="text" name="ad_facebook_url" id="ad_facebook_url" size="100" value="'. esc_url( $ad_facebook_url ) .'" /><br/>';
+    echo '<label>Twitter URL</label><br/><input type="text" name="ad_twitter_url" id="ad_twitter_url" size="100" value="'. esc_url( $ad_twitter_url ) .'" /><br/>';
+    echo '<label>Map URL</label><br/><input type="text" name="ad_map_url" id="ad_map_url" size="100" value="'. esc_url( $ad_map_url ) .'" /><br/>';
 }
 
 function va_ads_save_meta_box( $post_id ) {
@@ -63,6 +65,10 @@ function va_ads_save_meta_box( $post_id ) {
         update_post_meta( $post_id, 'ad_email', $_POST['ad_email']);
     }
  
+    if( isset( $_POST['ad_additional_info'] ) ) {
+        update_post_meta( $post_id, 'ad_additional_info', $_POST['ad_additional_info']);
+    }
+
     if( isset( $_POST['ad_phone'] ) ) {
         update_post_meta( $post_id, 'ad_phone', $_POST['ad_phone']);
     }
