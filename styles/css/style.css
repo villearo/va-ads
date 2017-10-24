@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07); }
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  margin-bottom: 3rem; }
   .ad .image {
     flex: none;
     flex-basis: 33.33333%;
@@ -18,7 +19,7 @@
     padding: 2rem; }
     .ad .info a {
       display: inline-block;
-      text-decoration: none;
-      box-shadow: none;
+      text-decoration: none !important;
+      box-shadow: none !important;
       margin: 1rem 1rem 0 0;
       font-size: 1.2rem; }

@@ -11,7 +11,7 @@ function va_ads_setup_post_type() {
 		'edit_item' => __('Edit Ad'),
 		'view_item' => __('View Ad')
 	),
-	'public' => false,
+	'public' => true,
 	'publicly_queryable' => false,
 	'has_archive' => false,
 	'rewrite' => array('slug' => 'ads'),
@@ -24,7 +24,6 @@ function va_ads_setup_post_type() {
 	'supports' => array('title', 'thumbnail'),
 	'exclude_from_search' => true,
 	'menu_position' => 20,
-	'has_archive' => false,
 	'menu_icon' => 'dashicons-media-spreadsheet'
 	);
 	
